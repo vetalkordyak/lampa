@@ -6,7 +6,7 @@
     const menuItems = [
         { action: "hd", title: "В UHD якості", url: "?cat=&sort=now&uhd=true", component: "category_full", source: "cub", sort: "now", card_type: "true", page: 1 },
         { action: "netflix", title: "Netflix", url: "discover/tv?language=ua&with_networks=213", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
-        { action: "megogo", title: "Megogo", url: "discover/tv?language=ua&with_networks=4136", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
+        { action: "ukrainian", title: "Ukrainian", url: "?cat=movie&airdate=2020-2025&sort_by=revenue.desc&without_genres=16&language=uk", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
     ];
 
     function createMenuItem(item) {
@@ -26,9 +26,9 @@
     }
 
     function initMenuItems() {
-        if (Lampa.Storage.get("filmselection_uhd") === 1) createMenuItem(menuItems[0]);
-        if (Lampa.Storage.get("filmselection_netflix") === 1) createMenuItem(menuItems[1]);
-        if (Lampa.Storage.get("filmselection_megogo") === 1) createMenuItem(menuItems[2]);
+        menuItems.forEach(function (item){
+            if(Lampa.Storage.get(`filmselection_${item.action}`) === 1) createMenuItem(item);
+        });
     }
 
     function addSettings() {
@@ -38,50 +38,21 @@
             name: "Підбірки фільмів",
         });
 
-        Lampa.SettingsApi.addParam({
-            component: "filmselection",
-            param: {
-                name: "filmselection_uhd",
-                type: "select",
-                values: { 1: "Показати", 0: "Сховати" },
-                default: 0
-            },
-            field: { name: "В хорошій якості" },
-            onChange: function(value) {
-                if (value === 1 && $('[data-action="pact_hd"]').length === 0) createMenuItem(menuItems[0]);
-                else Lampa.Helper.show("Необхідно перевідкрити Lampa");
-            }
-        });
-
-        Lampa.SettingsApi.addParam({
-            component: "filmselection",
-            param: {
-                name: "filmselection_netflix",
-                type: "select",
-                values: { 1: "Показати", 0: "Сховати" },
-                default: 0
-            },
-            field: { name: "Netflix" },
-            onChange: function(value) {
-                if (value === 1 && $('[data-action="pact_netflix"]').length === 0) createMenuItem(menuItems[1]);
-                else Lampa.Helper.show("Необхідно перевідкрити Lampa");
-            }
-        });
-
-
-        Lampa.SettingsApi.addParam({
-            component: "filmselection",
-            param: {
-                name: "filmselection_megogo",
-                type: "select",
-                values: { 1: "Показати", 0: "Сховати" },
-                default: 0
-            },
-            field: { name: "Megogo" },
-            onChange: function(value) {
-                if (value === 1 && $('[data-action="pact_megogo"]').length === 0) createMenuItem(menuItems[2]);
-                else Lampa.Helper.show("Необхідно перевідкрити Lampa");
-            }
+        menuItems.forEach(function (item){
+            Lampa.SettingsApi.addParam({
+                component: "filmselection",
+                param: {
+                    name: `filmselection_${item.action}`,
+                    type: "select",
+                    values: { 1: "Показати", 0: "Сховати" },
+                    default: 0
+                },
+                field: { name: item.title },
+                onChange: function(value) {
+                    if (value === 1 && $(`[data-action="pact_${item.action}"]`).length === 0) createMenuItem(item);
+                    else Lampa.Helper.show("Необхідно перевідкрити Lampa");
+                }
+            });
         });
     }
 
