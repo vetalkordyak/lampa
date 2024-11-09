@@ -6,7 +6,7 @@
     const menuItems = [
         { action: "hd", title: "В UHD якості", url: "?cat=&sort=now&uhd=true", component: "category_full", source: "cub", sort: "now", card_type: "true", page: 1 },
         { action: "netflix", title: "Netflix", url: "discover/tv?language=ua&with_networks=213", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
-        { action: "ukrainian", title: "Ukrainian", url: "?cat=movie&airdate=2020-2025&sort_by=revenue.desc&without_genres=16&language=uk", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
+        { action: "ukrainian", title: "Ukrainian", url: "discover/movie?include_adult=true&language=uk&sort_by=popularity.desc&with_original_language=uk", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
     ];
 
     function createMenuItem(item) {
