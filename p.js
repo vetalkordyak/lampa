@@ -7,7 +7,8 @@
         { action: "hd", title: "В UHD якості", url: "?cat=&sort=now&uhd=true", component: "category_full", source: "cub", sort: "now", card_type: "true", page: 1 },
         { action: "netflix", title: "Netflix", url: "discover/tv?language=ua&with_networks=213", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
         { action: "apple", title: "Apple TV", url: "discover/tv?language=ua&with_networks=2552", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
-        { action: "hbo", title: "HBO", url: "discover/tv?language=ua&with_networks=3186", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
+        { action: "hbo", title: "HBO Max", url: "discover/tv?language=ua&with_networks=3186", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
+        { action: "hbo_europe", title: "HBO Europe", url: "discover/tv?language=ua&with_networks=1129", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
         { action: "ukrainian", title: "Українські", url: "discover/movie?include_adult=true&language=uk&sort_by=popularity.desc&with_original_language=uk", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
         { action: "ukrainiantv", title: "Українські TV", url: "discover/tv?include_adult=true&language=uk&sort_by=popularity.desc&with_original_language=uk", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
     ];
