@@ -11,6 +11,7 @@
         { action: "hbo_europe", title: "HBO Europe", url: "discover/tv?language=ua&with_networks=1129", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
         { action: "ukrainian", title: "Українські", url: "discover/movie?include_adult=true&language=uk&sort_by=popularity.desc&with_original_language=uk", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
         { action: "ukrainiantv", title: "Українські TV", url: "discover/tv?include_adult=true&language=uk&sort_by=popularity.desc&with_original_language=uk", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
+        { action: "uapopular", title: "Популярне в Україні", url: "discover/movie?include_adult=true&language=uk&sort_by=popularity.desc&watch_region=ua", component: "category_full", source: "tmdb", sort: "now", card_type: "true", page: 1 },
     ];
 
     function createMenuItem(item) {
