@@ -25,8 +25,8 @@
     }
 
     function initMenuItems() {
-        if (Lampa.Storage.get("filmselection_hd") === "1") createMenuItem(menuItems[0]);
-        if (Lampa.Storage.get("filmselection_netflix") === "1") createMenuItem(menuItems[1]);
+        if (Lampa.Storage.get("filmselection_hd") === 1) createMenuItem(menuItems[0]);
+        if (Lampa.Storage.get("filmselection_netflix") === 1) createMenuItem(menuItems[1]);
     }
 
     function addSettings() {
